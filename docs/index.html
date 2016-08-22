@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>ether.tube</title>
+<style>
+html { font: 22px/1.5 courier, monospace; color: ivory; }
+body { height: 100vh; text-align: center; margin: 0; background: black; }
+iframe { width: 95vw; height: calc(100vh - 4rem); margin-top: .5vh; }
+b { opacity: .7; }
+</style>
+<div>
+<iframe id=video width="854" height="480" frameborder="0" allowfullscreen>
+</iframe>
+<script>
+var req = new XMLHttpRequest()
+req.onload = function() {
+  video.src = "https://www.youtube.com/embed/" + this.responseText +
+    "?autoplay=1&modestbranding=1&rel=0"
+}
+req.open("GET", "https://castle.brockman.se/ethertube/now")
+req.send()
+</script>
+<p>Send <b>setVideo(bytes11)</b> with YouTube identifier
+to Morden <b>0x8720f66b0d7d5303e2ecea0de0a2fd7492051948</b>.
