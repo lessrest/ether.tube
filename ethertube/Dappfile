@@ -1,0 +1,18 @@
+version: 1.0.0
+tags: []
+layout:
+  sol_sources: contracts
+  build_dir: build
+dependencies: {}
+ignore: []
+name: ethertube
+environments:
+  master:
+    objects: {}
+    type: internal
+  morden:
+    objects:
+      ethertube:
+        value: '0x89e79fd6c72940c1018166dc2cfe10b952678173'
+        type: EtherTube
+    type: MORDEN
