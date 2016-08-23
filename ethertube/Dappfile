@@ -13,6 +13,6 @@ environments:
   morden:
     objects:
       ethertube:
-        value: '0x89e79fd6c72940c1018166dc2cfe10b952678173'
+        value: '0xfb77d479e82827b798c898531c89d9e73cda139f'
         type: EtherTube
     type: MORDEN
