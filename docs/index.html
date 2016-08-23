@@ -13,10 +13,14 @@ b { opacity: .7; }
 <script>
 var req = new XMLHttpRequest()
 req.onload = function() {
-  video.src = "https://www.youtube.com/embed/" + this.responseText +
+  var result = JSON.parse(this.responseText).result
+  var id = result.match(/^0x(.{22})/)[1].match(/.{1,2}/g).map(function(x) {
+    return String.fromCharCode(parseInt(x, 16))
+  }).join('')
+  video.src = "https://www.youtube.com/embed/" + id +
     "?autoplay=1&modestbranding=1&rel=0"
 }
-req.open("GET", "https://castle.brockman.se/ethertube/now")
+req.open("GET", "https://testnet.etherscan.io/api?module=proxy&action=eth_call&to=0x8720f66b0d7d5303e2ecea0de0a2fd7492051948&data=0x31ad5ad2&tag=latest")
 req.send()
 </script>
 <p>Send <b>setVideo(bytes11)</b> with YouTube identifier
